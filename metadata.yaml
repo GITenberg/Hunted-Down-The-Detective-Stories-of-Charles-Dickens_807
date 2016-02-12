@@ -1,0 +1,32 @@
+_repo: Hunted-Down-The-Detective-Stories-of-Charles-Dickens_807
+creator:
+  author:
+    agent_name: Dickens, Charles
+    alias: Boz
+    birthdate: 1812
+    deathdate: 1870
+    gutenberg_agent_id: '37'
+    url: http://www.gutenberg.org/2009/agents/37
+    wikipedia: http://en.wikipedia.org/wiki/Charles_Dickens
+description: Charles Dickens was one of the great pioneers of detective fiction. While
+  the larger-than-life characters in his novels have settled themselves in the public
+  imagination, his detectives have had a profound effect on the development of crime
+  fiction, and Dickens is now seen as the first major publicist for the police detective.
+  In Hunted Down, Peter Haining has assembled a fascinating selection of Dicken's
+  detective stories. Added to these are extracts from the novels in which the men
+  of the law make their mark, including Mr Nadgett from Martin Chuzzlewit , the first
+  serious detective in an English novel, and Inspector Bucket from Bleak House.
+gutenberg_bookshelf: Detective Fiction
+gutenberg_issued: '1997-02-01'
+gutenberg_type: Text
+identifiers:
+  gutenberg: '807'
+language: en
+publisher: Project Gutenberg
+rights: Public domain in the USA.
+rights_url: http://creativecommons.org/about/pdm
+subjects:
+- !lcc 'PR'
+- !lcsh 'Detective and mystery stories, English'
+title: 'Hunted Down: The Detective Stories of Charles Dickens'
+url: http://www.gutenberg.org/ebooks/807
