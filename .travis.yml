@@ -1,0 +1,61 @@
+sudo: required
+dist: trusty
+language: ruby
+
+before_install:
+before_install:
+- gem install asciidoctor -v 1.5.2
+- gem install tilt
+- sudo pip install git+https://github.com/gitenberg-dev/gitberg
+- sudo pip install pillow
+- sudo pip install cssutils
+- sudo pip install docutils
+- sudo pip install roman
+- sudo pip install git+https://github.com/gitenberg-dev/pg-epubmaker
+script:
+- VERSION=`ruby -e "require 'yaml'; meta = YAML.load_file('metadata.yaml'); puts meta['_version'];"`
+- git clone https://github.com/gitenberg-dev/asciidoctor-htmlbook.git
+- sudo pip install -r asciidoctor-htmlbook/gitberg-machine/requirements.txt
+
+- /usr/bin/python -c "from gitenberg import travis; travis.build_epub()"
+- ebook-convert book.epub book.mobi
+- xvfb-run ebook-convert book.epub book.pdf
+branches:
+  only:
+  - master
+notifications:
+  webhooks:
+    urls:
+      - https://unglue.it/api/travisci/webhook
+    on_success: always
+    on_failure: never
+    on_start: never
+deploy:
+  skip_cleanup: true
+  provider: releases
+  api_key:
+    secure: 2hpCFXGqMsziTj3+6fTFII1sloKHyCUDXoUOXULZRKRVyKtuOOxTZxxZ1rjtCGHkarz3oIgrJLY9fKSC8HZvEjMC8n5AKuRHG7OhCG2smJf39+UVKDKsXFarEuIVbAjDORh1HjrAJYh7eQovhTeyISbPtWc91bM4eln/u3MFmDASbX0FsdSJJbNqrOwYrmWoQiycBl0IpzQ1FCV/qnGXJfAzWkZO42W9RWby1JuuEVmxaBHsR24vd/AyYT/ta9diyMXt/al3X14dsh45GlleL4gj9mA7bOJeQS54aYR8quzJbxx6lRzQ5TNucdusnRXVCkgKples/k+lW7JmWFwlIaTzGsk1Co7q6TjF1rjh/0fmh6Uuc+Py9tW0cFDQdChEyuR7uUEzAS2zO1eh+KZT9n2VCrO4832eQigim1+narOb6XKNEdLyCwQaa1pqP6AnT8vYvKssVqn0jLNJuhG+zIMIzwP1F13Xz2YnWYCWyzBsRAhMZNc+uNkuZ03hl+/pgu3kgjkV0wkv2qAxB9Nkem7CsOsnQtWbGe1jYdB7U6DLV5ucDAnvhi5Svj9zCyZ27s1UdX5Du3rKUQ8dBcK/eeTqEah8eFwWYY+d2Rmfj3ppxDaKj+zZP+15NqE1Dy/4lqQgNLiTI0KRfAAhNFxvz4O8PB2P99KP1diIblk8wLc=
+  file:
+    - book.epub
+    - book.mobi
+    - book.pdf
+  "on":
+    repo: GITenberg/Hunted-Down-The-Detective-Stories-of-Charles-Dickens_807
+addons:
+  apt:
+    packages:
+    - xsltproc
+    - xvfb
+    - calibre
+    - python-pip
+    - git
+    - python-dev
+    - libjpeg-dev
+    - libpng-dev
+    - libfreetype6
+    - libfreetype6-dev
+    - zlib1g-dev
+    - python-lxml
+    - libxml2-dev
+    - libxslt1-dev
+    - tidy
