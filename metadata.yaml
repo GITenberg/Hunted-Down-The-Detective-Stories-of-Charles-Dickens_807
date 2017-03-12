@@ -1,5 +1,8 @@
 _repo: Hunted-Down-The-Detective-Stories-of-Charles-Dickens_807
-_version: 0.1.0
+_version: 0.2.0
+covers:
+- cover_type: generated
+  image_path: cover.png
 creator:
   author:
     agent_name: Dickens, Charles
@@ -17,6 +20,8 @@ description: Charles Dickens was one of the great pioneers of detective fiction.
   detective stories. Added to these are extracts from the novels in which the men
   of the law make their mark, including Mr Nadgett from Martin Chuzzlewit , the first
   serious detective in an English novel, and Inspector Bucket from Bleak House.
+edition_identifiers:
+  edition_id: http://www.gutenberg.org/ebooks/807#Hunted-Down-The-Detective-Stories-of-Charles-Dickens
 gutenberg_bookshelf: Detective Fiction
 gutenberg_issued: '1997-02-01'
 gutenberg_type: Text
